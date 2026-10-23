@@ -4,119 +4,133 @@
 }
 
 :root {
-  --ink: #172033;
-  --muted: #697386;
-  --blue: #2857df;
-  --line: #e5e9f0;
-  --bg: #f6f7fb;
+  --azul: #2855e8;
+  --azul-escuro: #173bb5;
+  --fundo: #f5f7fb;
+  --texto: #172033;
+  --cinza: #65718a;
+  --borda: #e1e7f0;
+  --branco: #ffffff;
 }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
 }
 
 .top {
   background: #111827;
-  color: white;
-  padding: 28px 20px 75px;
+  color: var(--branco);
   text-align: center;
+  padding: 30px 16px 76px;
 }
 
 .brand {
-  font-size: 26px;
-  font-weight: 800;
+  font-size: 30px;
+  font-weight: 900;
   letter-spacing: -1px;
 }
 
 .brand span {
-  color: #91adff;
+  color: #8ba8ff;
 }
 
 .top p {
-  color: #cbd3e1;
-  font-size: 14px;
+  margin: 8px 0 0;
+  color: #d5dbea;
+  font-size: 15px;
 }
 
 main {
-  width: min(760px, calc(100% - 32px));
-  margin: -40px auto 45px;
+  width: min(100% - 32px, 850px);
+  margin: -40px auto 0;
+  padding-bottom: 32px;
 }
 
 .search {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 28px;
-  box-shadow: 0 12px 35px #1720330d;
-}
-
-h1, h2 {
-  letter-spacing: -0.5px;
+  background: var(--branco);
+  padding: 30px;
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(22, 36, 70, 0.06);
 }
 
 h1 {
-  font-size: 27px;
   margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: -0.7px;
 }
 
 .subtitle {
-  color: var(--muted);
+  color: var(--cinza);
   font-size: 14px;
-  margin-bottom: 24px;
+  margin: 0 0 25px;
 }
 
 .fields {
   display: grid;
-  grid-template-columns: 1.1fr 0.8fr 1fr;
-  gap: 13px;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 14px;
 }
 
 label {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: #414b5d;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   min-width: 0;
-  height: 44px;
-  padding: 0 10px;
-  border: 1px solid #d8deea;
-  border-radius: 8px;
-  background: white;
-  color: var(--ink);
-  font-size: 14px;
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid #d5ddeb;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--texto);
+  font: inherit;
+  font-size: 15px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #b8c9ff;
+  border-color: var(--azul);
 }
 
 .search-button {
   width: 100%;
-  height: 46px;
+  min-height: 48px;
   margin-top: 20px;
   border: 0;
   border-radius: 9px;
-  background: var(--blue);
+  background: var(--azul);
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .search-button:hover {
-  background: #1d45bd;
+  background: var(--azul-escuro);
+}
+
+.search-button:active {
+  transform: scale(0.99);
 }
 
 .city-note {
-  margin: 16px 0 0;
-  color: var(--muted);
-  font-size: 12px;
+  margin: 15px 0 0;
   text-align: center;
+  color: var(--cinza);
+  font-size: 13px;
 }
 
 .results {
@@ -125,131 +139,140 @@ input, select {
 
 .results-title {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-h2 {
-  font-size: 20px;
+.results-title h2 {
   margin: 0;
+  font-size: 21px;
 }
 
 #count {
-  color: var(--muted);
-  font-size: 12px;
+  color: var(--cinza);
+  font-size: 13px;
+  text-align: right;
 }
 
 .results-list {
   display: grid;
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
 
-.race-card {
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 20px;
+/* Cartões de corrida */
+.results-list > * {
+  min-width: 0;
 }
 
-.card-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
+.results-list > div,
+.results-list > article {
+  background: var(--branco);
+  padding: 22px;
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(22, 36, 70, 0.03);
 }
 
-.race-card h3 {
-  font-size: 17px;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.date-tag {
-  white-space: nowrap;
-  background: #eef2ff;
-  color: #294fc5;
-  border-radius: 7px;
-  padding: 8px;
-  font-size: 12px;
+.results-list a {
+  color: var(--azul);
   font-weight: 700;
-}
-
-.race-info {
-  margin-top: 14px;
-  display: grid;
-  gap: 8px;
-  color: #596477;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.race-info strong {
-  color: var(--ink);
-}
-
-.card-links {
-  border-top: 1px solid var(--line);
-  margin-top: 15px;
-  padding-top: 13px;
-  font-size: 12px;
-  line-height: 2;
-}
-
-.card-links a {
-  color: var(--blue);
   text-decoration: none;
-  font-weight: 700;
 }
 
-.empty, .initial {
-  padding: 25px;
-  background: white;
-  border: 1px dashed #d6dce7;
-  border-radius: 12px;
+.results-list a:hover {
+  text-decoration: underline;
+}
+
+.empty,
+.initial {
+  padding: 25px 20px;
+  border: 1px dashed #cbd5e5;
+  border-radius: 13px;
+  background: var(--branco);
+  color: var(--cinza);
   text-align: center;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 14px;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-top: 30px;
+  gap: 7px;
+  padding: 25px 10px 0;
   text-align: center;
-  color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
+  color: var(--cinza);
 }
 
 footer a {
-  color: var(--blue);
-  text-decoration: none;
+  color: var(--azul);
   font-weight: 700;
+  text-decoration: none;
 }
 
-@media (max-width: 620px) {
-  .search {
-    padding: 20px;
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .top {
+    padding: 25px 16px 66px;
   }
 
-  .fields {
-    grid-template-columns: 1fr;
+  .brand {
+    font-size: 27px;
+  }
+
+  main {
+    width: calc(100% - 24px);
+    margin-top: -35px;
+  }
+
+  .search {
+    padding: 22px 18px;
+    border-radius: 15px;
   }
 
   h1 {
     font-size: 24px;
   }
 
+  .fields {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  input,
+  select {
+    height: 47px;
+  }
+
+  .search-button {
+    min-height: 50px;
+  }
+
   .results-title {
     align-items: flex-start;
-    flex-direction: column;
+  }
+
+  .results-title h2 {
+    font-size: 19px;
+  }
+
+  #count {
+    max-width: 48%;
+  }
+
+  .results-list > div,
+  .results-list > article {
+    padding: 17px;
   }
 }
