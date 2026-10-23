@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111827">
-  <title>Corre SP | Buscar corridas</title>
+  <meta name="description" content="Encontre corridas de rua na cidade de São Paulo.">
+  <title>CORRESP | Buscar corridas em São Paulo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,19 +19,24 @@
     <section class="search">
       <h1>Buscar corridas</h1>
       <p class="subtitle">
-        Escolha a data, a distância e o preço máximo.
+        Escolha uma data, a distância e o preço máximo.
+        Deixe a data vazia para ver todas as corridas cadastradas.
       </p>
 
       <form id="searchForm">
         <div class="fields">
-          <label>
+          <label for="data">
             Data
-            <input type="date" id="data">
+            <input
+              type="date"
+              id="data"
+              name="data"
+            >
           </label>
 
-          <label>
+          <label for="distance">
             Distância
-            <select id="distance">
+            <select id="distance" name="distance">
               <option value="">Todas</option>
               <option value="3">3 km</option>
               <option value="5">5 km</option>
@@ -41,10 +47,16 @@
             </select>
           </label>
 
-          <label>
+          <label for="price">
             Preço máximo (R$)
-            <input type="number" id="price"
-              min="0" step="1" placeholder="Ex.: 100">
+            <input
+              type="number"
+              id="price"
+              name="price"
+              min="0"
+              step="0.01"
+              placeholder="Ex.: 100"
+            >
           </label>
         </div>
 
@@ -58,10 +70,10 @@
       </p>
     </section>
 
-    <section class="results">
+    <section class="results" aria-live="polite">
       <div class="results-title">
         <h2>Resultados</h2>
-        <span id="count">Selecione os filtros</span>
+        <span id="count">Carregando corridas...</span>
       </div>
 
       <div id="resultsList" class="results-list"></div>
@@ -72,13 +84,17 @@
       </p>
 
       <p id="initial" class="initial">
-        Escolha os filtros e clique em Pesquisar.
+        Deixe os filtros vazios e clique em Pesquisar
+        para ver todas as corridas cadastradas.
       </p>
     </section>
 
     <footer>
-      <a href="https://prefeitura.sp.gov.br/w/servico/corridas-de-rua"
-         target="_blank" rel="noopener">
+      <a
+        href="https://prefeitura.sp.gov.br/w/servico/corridas-de-rua"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Calendário da Prefeitura de São Paulo
       </a>
       <span>Confirme os detalhes com o organizador.</span>
